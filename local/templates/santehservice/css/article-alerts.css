@@ -1,0 +1,73 @@
+/* СантехСервис: алерты для выделения слов и выражений в тексте статьи
+   Использование: <span class="alert alert-warning">важно</span>
+   С иконкой:     <span class="alert alert-danger alert-icon">нельзя</span>
+   Подключать после article-body.css (используются те же цвета). */
+
+/* База: строчное выделение, переносится на новую строку без разрывов фона */
+article .alert {
+  --bg: #e6f1fd;
+  --fg: #0a3a8a;
+  --bd: #cfe1f8;
+  --ic: "i";
+  display: inline;
+  position: static;
+  margin: 0 .05em;
+  padding: .08em .5em;
+  border: 0;
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--fg);
+  box-shadow: inset 0 0 0 1px var(--bd);
+  font-size: .95em;
+  font-weight: 600;
+  line-height: inherit;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Варианты */
+article .alert-info    { --bg: #e6f1fd; --fg: #0a3a8a; --bd: #cfe1f8; --ic: "i"; }   /* термин, пояснение */
+article .alert-success { --bg: #e7f6ec; --fg: #155c33; --bd: #bfe6cc; --ic: "✓"; }   /* плюс, гарантия, можно */
+article .alert-warning { --bg: #fff3cf; --fg: #7a5200; --bd: #f6dc8c; --ic: "!"; }   /* важно, внимание */
+article .alert-danger  { --bg: #ffe9e7; --fg: #a3261b; --bd: #f6c4be; --ic: "✕"; }   /* опасно, нельзя */
+article .alert-accent  { --bg: #1565e8; --fg: #fff;    --bd: #1565e8; --ic: "★"; }   /* ключевая мысль */
+
+/* Цена: рамка, не переносится */
+article .alert-price {
+  --bg: #fff;
+  --fg: #0a2f6e;
+  --bd: #ffb800;
+  box-shadow: inset 0 0 0 2px var(--bd);
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+/* Маркер: как выделение текстовым маркером */
+article .alert-marker {
+  padding: 0 .15em;
+  border-radius: 2px;
+  background: linear-gradient(transparent 55%, #ffe38a 55%);
+  box-shadow: none;
+  color: inherit;
+}
+
+/* Волнистое подчёркивание: для спорных или важных формулировок */
+article .alert-line {
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  color: inherit;
+  text-decoration: underline wavy #1565e8;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+/* Необязательная иконка перед текстом */
+article .alert-icon::before {
+  content: var(--ic);
+  display: inline-block;
+  margin-right: .4em;
+  font-weight: 800;
+}
+article .alert-marker.alert-icon::before,
+article .alert-line.alert-icon::before { content: none; }

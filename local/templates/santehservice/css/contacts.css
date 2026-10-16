@@ -1,0 +1,30 @@
+/* Блок «Контакты» (#contacts) — подключается из header.php на всех страницах */
+/* блок «Контакты» */
+#contacts{padding:46px 0 24px;scroll-margin-top:84px}
+#contacts *{box-sizing:border-box}
+#contacts .ct{display:grid;grid-template-columns:300px minmax(0,1fr) 300px;gap:24px;align-items:stretch}
+#contacts .cb{background:#e6f1fd;border-radius:10px;padding:22px 20px;display:flex;flex-direction:column;min-height:300px}
+#contacts h3{font-size:16px;font-weight:800;color:#0a2f6e;margin:0 0 18px;line-height:1.3}
+#contacts .ci{display:flex;flex-direction:column;gap:18px;font-size:14px;color:#0a2f6e;line-height:1.45}
+#contacts .ci>div{display:flex;gap:12px;align-items:center}
+#contacts .ci svg{width:22px;height:22px;fill:none;stroke:#1565e8;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+#contacts .ci a.pn{background:#ffb800;color:#fff;font-weight:700;border-radius:6px;padding:7px 14px;font-size:15px;text-decoration:none;white-space:nowrap}
+#contacts .ci a.ml{color:#0a2f6e;text-decoration:none}
+#contacts .mp{position:relative;border-radius:10px;overflow:hidden;min-height:300px;background:#dce9f6}
+#contacts .mp iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+#contacts form{display:flex;flex-direction:column;flex:1}
+#contacts .fields{display:flex;flex-direction:column;flex:1}
+#contacts input,#contacts textarea{width:100%;border:1.5px solid #d3deee;border-radius:6px;padding:10px 12px;font:inherit;font-size:13px;color:#0a2f6e;margin-bottom:10px;background:#fff;outline:0}
+#contacts input:focus,#contacts textarea:focus{border-color:#1565e8}
+#contacts textarea{flex:1;min-height:64px;resize:none}
+#contacts .sbt{background:#ffb800;color:#fff;font:inherit;font-weight:700;font-size:13.5px;border:0;border-radius:6px;padding:12px;cursor:pointer;width:100%}
+#contacts .sbt:hover{filter:brightness(1.06)}
+#contacts .ag{display:flex;gap:8px;align-items:flex-start;font-size:11px;line-height:1.45;color:#5a6f8f;margin:0 0 10px;cursor:pointer}
+#contacts .ag input{width:16px;height:16px;padding:0;margin:1px 0 0;flex:none;accent-color:#1565e8}
+#contacts .ag a{color:#1565e8}
+#contacts .ok{display:none;font-weight:700;color:#19a352;font-size:14px;padding:14px 0;line-height:1.5}
+@media(max-width:1080px){#contacts .ct{grid-template-columns:1fr 1fr}#contacts .cb.fm2{grid-column:1/-1}}
+@media(max-width:760px){#contacts{padding:34px 0 16px}#contacts .ct{grid-template-columns:1fr}#contacts .mp{min-height:260px}}
+
+#contacts .er{display:none;color:#d12c2c;font-size:12px;line-height:1.4;margin:0 0 10px}
+#contacts .sbt:disabled{opacity:.6;cursor:wait}
