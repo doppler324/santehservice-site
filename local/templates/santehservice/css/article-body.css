@@ -458,3 +458,29 @@ article h3 {
   margin-top:28px;
   margin-bottom:12px;
 }
+
+/* Аккордеон: плюс/минус справа в круге */
+article details summary {
+  display:flex !important;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  width:100%;
+}
+article details summary:after {
+  content:"+";
+  flex:none;
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  background:var(--l);
+  color:var(--b);
+  font:500 22px/28px Montserrat,Arial,sans-serif;
+  text-align:center;
+  transition:background .2s,color .2s;
+}
+article details[open] summary:after {
+  content:"\2212";
+  background:var(--b);
+  color:#fff;
+}
