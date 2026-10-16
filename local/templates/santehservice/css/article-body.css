@@ -437,3 +437,14 @@ article ul li:before {
 article ul.ck li:before {
   top:.3em;
 }
+
+/* Блоки внутри статьи: отступы сверху и снизу (сброс margin обнуляет их в обёртках) */
+article blockquote,
+article figure,
+article .note,
+article .tb,
+article .cta,
+article .au {
+  margin-top:28px;
+  margin-bottom:28px;
+}
