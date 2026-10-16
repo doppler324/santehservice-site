@@ -30,30 +30,24 @@ $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/home.js");
    <div><span class="cir"><svg class="i"><use href="#hm-doc"/></svg></span>Работаем<br>по договору</div>
   </div>
  </div>
- <?php $APPLICATION->IncludeComponent(
-	"bitrix:main.feedback", 
-	"home_form", 
-	[
-		"FORM_VARIANT" => "hero",
-		"FORM_SOURCE" => "Баннер главной",
-		"FORM_TITLE" => "Оставьте заявку",
-		"FORM_SUBTITLE" => "и мастер приедет уже через 30 минут",
-		"BUTTON_TEXT" => "Вызвать мастера",
-		"MESSAGE_PLACEHOLDER" => "Что нужно сделать? (необязательно)",
-		"MESSAGE_REQUIRED" => "N",
-		"OK_TEXT" => "Спасибо! Заявка принята — перезвоним в течение 5 минут.",
-		"EMAIL_TO" => "info@uslugi-santechnika.ru",
-		"REQUIRED_FIELDS" => [
-			0 => "NAME",
-		],
-		"USE_CAPTCHA" => "Y",
-		"COMPONENT_TEMPLATE" => "home_form",
-		"EVENT_MESSAGE_ID" => [
-			0 => "7",
-		]
-	],
-	false
-); ?>
+ <?php $APPLICATION->IncludeComponent("bitrix:form.result.new", "home_form", array(
+    "WEB_FORM_ID"         => homeWebFormId(),
+    "SEF_MODE"            => "N",
+    "SUCCESS_URL"         => "",
+    "USE_EXTENDED_ERRORS" => "N",
+    "IGNORE_CUSTOM_TEMPLATE" => "N",
+    "CACHE_TYPE"          => "N",
+    "CHAIN_ITEM_TEXT"     => "",
+    "CHAIN_ITEM_LINK"     => "",
+    "FORM_VARIANT"        => "hero",
+    "FORM_SOURCE"         => "Баннер главной",
+    "FORM_TITLE"          => "Оставьте заявку",
+    "FORM_SUBTITLE"       => "и мастер приедет уже через 30 минут",
+    "BUTTON_TEXT"         => "Вызвать мастера",
+    "MESSAGE_PLACEHOLDER" => "Что нужно сделать? (необязательно)",
+    "MESSAGE_REQUIRED"    => "N",
+    "OK_TEXT"             => "Спасибо! Заявка принята — перезвоним в течение 5 минут.",
+)); ?>
 </div>
 </section>
 

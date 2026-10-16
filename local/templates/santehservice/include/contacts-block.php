@@ -18,16 +18,21 @@
   </div>
   <div class="cb fm2">
    <h3>Написать нам</h3>
-   <?php global $APPLICATION; $APPLICATION->IncludeComponent("bitrix:main.feedback", "home_form", array(
+   <?php global $APPLICATION; $APPLICATION->IncludeComponent("bitrix:form.result.new", "home_form", array(
+       "WEB_FORM_ID"         => homeWebFormId(),
+       "SEF_MODE"            => "N",
+       "SUCCESS_URL"         => "",
+       "USE_EXTENDED_ERRORS" => "N",
+       "IGNORE_CUSTOM_TEMPLATE" => "N",
+       "CACHE_TYPE"          => "N",
+       "CHAIN_ITEM_TEXT"     => "",
+       "CHAIN_ITEM_LINK"     => "",
        "FORM_VARIANT"        => "contacts",
        "FORM_SOURCE"         => "Блок «Контакты»",
        "BUTTON_TEXT"         => "Отправить",
        "MESSAGE_PLACEHOLDER" => "Ваш вопрос *",
        "MESSAGE_REQUIRED"    => "Y",
        "OK_TEXT"             => "Спасибо! Ответим в ближайшее время.",
-       "EMAIL_TO"            => "info@santehservice.ru",
-       "REQUIRED_FIELDS"     => array("NAME", "MESSAGE"),
-       "USE_CAPTCHA"         => "N",
    )); ?>
   </div>
  </div>
