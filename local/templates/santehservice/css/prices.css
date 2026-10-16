@@ -1,8 +1,9 @@
 /* Страница «Цены» (/ceny/) — вариант A: таблицы по разделам */
 .pr{--b:#1565e8;--d:#0a2f6e;--y:#ffb800;--l:#e6f1fd;--g:#5a6f8f;--line:#dbe7f6;color:var(--d);line-height:1.5}
 .pr *{box-sizing:border-box}
-.pr .w{max-width:1536px;margin:0 auto;padding:0 16px;width:100%}
-@media(min-width:1280px){.pr .w{padding:0 32px}}
+/* ширина контента — как на главной (.hm .w): 1214px, отступы 52 / 24 px */
+.pr .w{max-width:1214px;margin:0 auto;padding:0 52px;width:100%}
+@media(max-width:1080px){.pr .w{padding:0 24px}}
 .pr .crumbs{font-size:12.5px;color:var(--g);padding:20px 0 0}
 .pr .crumbs a{color:var(--g);text-decoration:none}.pr .crumbs a:hover{color:var(--b)}
 .pr h1{font-size:34px;font-weight:800;margin:10px 0 8px;line-height:1.2}
@@ -37,6 +38,7 @@
 body:has(.pr-cta){padding-bottom:72px}
 @media(max-width:900px){.pr .trust,.pr .fac{grid-template-columns:1fr 1fr}.pr h1{font-size:26px}.pr .pros{grid-template-columns:1fr}}
 @media(max-width:560px){
+ .pr .w{padding:0 16px}
  .pr .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.pr .chips::-webkit-scrollbar{display:none}.pr .chips a{flex:none}
  .pr td.u,.pr th.u{display:none}.pr td.a{width:auto}.pr td.a .btn{padding:7px 10px}.pr td.p{width:96px}
  .pr-cta{padding:10px 14px;gap:10px}.pr-cta span{display:none}.pr-cta b{font-size:14px}.pr-cta a{padding:10px 14px;font-size:13px}
