@@ -412,3 +412,28 @@ details[open] {
 article p + p {
   margin-top:18px;
 }
+
+/* Списки: воздух вокруг списка и между пунктами */
+article ul,
+article ol {
+  margin:16px 0 24px;
+}
+article ul li,
+article ol li {
+  margin-top:14px;
+  line-height:1.6;
+}
+article ul li:first-child,
+article ol li:first-child {
+  margin-top:0;
+}
+article ol li {
+  min-height:32px;
+  padding-top:3px;
+}
+article ul li:before {
+  top:.55em;
+}
+article ul.ck li:before {
+  top:.3em;
+}
