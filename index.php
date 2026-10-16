@@ -182,7 +182,6 @@ $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/home.js");
 </div>
 </section>
 
-<?php include($_SERVER["DOCUMENT_ROOT"].SITE_TEMPLATE_PATH."/include/contacts-block.php"); ?>
 </div>
 
 <?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php"); ?>

@@ -28,3 +28,27 @@
 
 #contacts .er{display:none;color:#d12c2c;font-size:12px;line-height:1.4;margin:0 0 10px}
 #contacts .sbt:disabled{opacity:.6;cursor:wait}
+
+/* плавная прокрутка к якорям (#contacts) */
+html{scroll-behavior:smooth}
+
+/* всплывающая форма «Заказать звонок» (include/callback-modal.php) */
+.cbm{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(10,47,110,.55)}
+.cbm.on,.cbm:target{display:flex}
+.cbm *{box-sizing:border-box}
+.cbm-card{position:relative;background:#fff;border-radius:14px;width:100%;max-width:380px;padding:28px 24px 22px;box-shadow:0 20px 60px rgba(10,47,110,.35)}
+.cbm-x{position:absolute;right:12px;top:8px;font-size:28px;line-height:1;color:#7a8aa5;text-decoration:none;padding:4px 8px}
+.cbm-x:hover{color:#0a2f6e}
+.cbm h3{font-size:20px;font-weight:800;color:#0a2f6e;margin:0 0 6px;line-height:1.25}
+.cbm-s{font-size:13px;color:#5a6f8f;margin:0 0 16px;line-height:1.4}
+.cbm form{display:block}
+.cbm input[type=text],.cbm input[type=tel]{width:100%;border:1.5px solid #d3deee;border-radius:8px;padding:12px 14px;font:inherit;font-size:14px;color:#0a2f6e;margin-bottom:10px;background:#fff;outline:0}
+.cbm input[type=text]:focus,.cbm input[type=tel]:focus{border-color:#1565e8}
+.cbm .ag{display:flex;gap:8px;align-items:flex-start;font-size:11px;line-height:1.45;color:#5a6f8f;margin:2px 0 12px;cursor:pointer}
+.cbm .ag input{width:16px;height:16px;padding:0;margin:1px 0 0;flex:none;accent-color:#1565e8}
+.cbm .ag a{color:#1565e8}
+.cbm .sbt{background:#ffb800;color:#fff;font:inherit;font-weight:700;font-size:14px;border:0;border-radius:8px;padding:13px;cursor:pointer;width:100%}
+.cbm .sbt:hover{filter:brightness(1.06)}
+.cbm .sbt:disabled{opacity:.6;cursor:wait}
+.cbm .er{display:none;color:#d12c2c;font-size:12px;line-height:1.4;margin:0 0 10px}
+.cbm .ok{display:none;font-weight:700;color:#19a352;font-size:15px;padding:18px 0 8px;line-height:1.5}

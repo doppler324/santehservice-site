@@ -1,4 +1,6 @@
-</main>
+<?// Блок «Контакты» (якорь #contacts): карта, телефон, форма — на всех страницах ?>
+    <?include($_SERVER["DOCUMENT_ROOT"].SITE_TEMPLATE_PATH."/include/contacts-block.php");?>
+    </main>
 
     <?// Используем кастомный цвет фона для точного совпадения с макетом ?>
     <footer class="bg-[#11459a] text-white pt-10 pb-10 xl:pt-12 xl:pb-12 mt-auto">
@@ -95,7 +97,11 @@
         </div>
     </footer>
 
+    <?// Всплывающая форма «Заказать звонок» (открывается кнопкой-трубкой в шапке) ?>
+    <?include($_SERVER["DOCUMENT_ROOT"].SITE_TEMPLATE_PATH."/include/callback-modal.php");?>
+    <script src="<?=SITE_TEMPLATE_PATH?>/js/callback.js"></script>
+
     <?// Здесь могут быть подключены ваши основные скрипты ?>
     <script src="<?=SITE_TEMPLATE_PATH?>/js/main.js"></script>
 </body>
-</html>
+</html>

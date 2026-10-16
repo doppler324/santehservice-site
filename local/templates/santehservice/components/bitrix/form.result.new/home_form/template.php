@@ -6,9 +6,10 @@
  * MESSAGE_PLACEHOLDER, MESSAGE_REQUIRED (Y/N — только проверка в браузере), FORM_SOURCE, OK_TEXT.
  */
 $hero   = ($arParams["FORM_VARIANT"] ?? "") === "hero";
+$cb     = ($arParams["FORM_VARIANT"] ?? "") === "callback"; // всплывающая форма: только имя и телефон
 $Q      = $arResult["QUESTIONS"] ?? array();
 $formId = (int)($arResult["arForm"]["ID"] ?? 0);
-$fid    = "hmf-".$formId."-".($hero ? "hero" : "contacts");
+$fid    = "hmf-".$formId."-".($hero ? "hero" : ($cb ? "callback" : "contacts"));
 $isOk   = ($arResult["isFormNote"] ?? "") === "Y";
 $msgReq = ($arParams["MESSAGE_REQUIRED"] ?? "N") === "Y";
 
@@ -72,11 +73,13 @@ foreach (array("NAME","PHONE","MESSAGE","AGREE") as $sid) { if (!$ans($sid)) $mi
     <div class="er"<?=$errors ? ' style="display:block"' : ""?>><?php foreach ($errors as $e): ?><div><?=htmlspecialcharsbx($e)?></div><?php endforeach; ?></div>
     <input type="text" name="<?=$nm("NAME")?>" placeholder="Ваше имя *" value="<?=$val("NAME")?>" data-f="name" required>
     <input type="tel" name="<?=$nm("PHONE")?>" placeholder="+7 (___) ___-__-__ *" value="<?=$val("PHONE")?>" data-f="phone" required>
+    <?php if (!$cb): ?>
     <?php $mt = $ans("MESSAGE")["type"]; ?>
     <?php if ($hero && $mt !== "textarea"): ?>
       <input type="text" name="<?=$nm("MESSAGE")?>" placeholder="<?=htmlspecialcharsbx($arParams["MESSAGE_PLACEHOLDER"] ?? "Что нужно сделать? (необязательно)")?>" value="<?=$val("MESSAGE")?>" data-f="msg">
     <?php else: ?>
       <textarea name="<?=$nm("MESSAGE")?>" placeholder="<?=htmlspecialcharsbx($arParams["MESSAGE_PLACEHOLDER"] ?? "Ваш вопрос *")?>" data-f="msg"<?=$msgReq ? " required" : ""?>><?=$val("MESSAGE")?></textarea>
+    <?php endif; ?>
     <?php endif; ?>
     <label class="ag"><input type="checkbox" name="<?=$nm("AGREE")?>" value="<?=(int)$ans("AGREE")["id"]?>" data-f="agree" required><span>Я даю <a href="/consent/" target="_blank">согласие на обработку персональных данных</a> и принимаю <a href="/privacy/" target="_blank">Политику конфиденциальности</a></span></label>
     <button class="<?=$hero ? "btn" : "sbt"?>" type="submit"><?=htmlspecialcharsbx($arParams["BUTTON_TEXT"] ?? ($hero ? "Вызвать мастера" : "Отправить"))?></button>
