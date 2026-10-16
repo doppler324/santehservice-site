@@ -52,3 +52,7 @@ html{scroll-behavior:smooth}
 .cbm .sbt:disabled{opacity:.6;cursor:wait}
 .cbm .er{display:none;color:#d12c2c;font-size:12px;line-height:1.4;margin:0 0 10px}
 .cbm .ok{display:none;font-weight:700;color:#19a352;font-size:15px;padding:18px 0 8px;line-height:1.5}
+
+/* ширина блока — как у шапки и футера (max-w 1536px, отступы 16px / 32px от xl) */
+#contacts>.w{max-width:1536px;margin:0 auto;padding:0 16px;width:100%}
+@media(min-width:1280px){#contacts>.w{padding:0 32px}}
