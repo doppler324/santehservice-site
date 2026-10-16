@@ -5,8 +5,14 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var CBitrixComponentTemplate $this */
 $this->setFrameMode(true);
 
+$q = trim(preg_replace('~\s+~u', " ", strip_tags((string)($_GET["q"] ?? ""))));
+$q = mb_substr($q, 0, 100);
 if (empty($arResult["ITEMS"])) {
-    echo '<p class="bl-empty">В этой рубрике пока нет статей.</p>';
+    if ($q !== "") {
+        echo '<p class="bl-empty">По запросу «' . htmlspecialcharsbx($q) . '» ничего не найдено. Попробуйте изменить запрос или <a href="' . htmlspecialcharsbx(strtok($_SERVER["REQUEST_URI"], "?")) . '">посмотреть все статьи</a>.</p>';
+    } else {
+        echo '<p class="bl-empty">В этой рубрике пока нет статей.</p>';
+    }
     return;
 }
 
@@ -41,7 +47,8 @@ $edit = function (array $item) use ($arParams) {
 };
 
 $items = $arResult["ITEMS"];
-$featured = ($page === 1 && empty($arParams["PARENT_SECTION_CODE"])) ? array_shift($items) : null;
+$featured = ($page === 1 && empty($arParams["PARENT_SECTION_CODE"]) && $q === "") ? array_shift($items) : null;
+$found = !empty($arResult["NAV_RESULT"]) ? (int)$arResult["NAV_RESULT"]->SelectedRowsCount() : count($arResult["ITEMS"]);
 ?>
 
 <?php if ($featured): $src = $img($featured, 900, 700); ?>
@@ -57,7 +64,12 @@ $featured = ($page === 1 && empty($arParams["PARENT_SECTION_CODE"])) ? array_shi
 </a>
 <?php endif ?>
 
+<?php if ($q !== ""): ?>
+<h2 class="bl-sec">Результаты поиска: «<?= htmlspecialcharsbx($q) ?>»</h2>
+<p class="bl-sr">Найдено статей: <?= $found ?>. <a href="<?= htmlspecialcharsbx(strtok($_SERVER["REQUEST_URI"], "?")) ?>">Сбросить поиск</a></p>
+<?php else: ?>
 <h2 class="bl-sec">Последние статьи</h2>
+<?php endif ?>
 <div class="bl-grid">
 <?php foreach ($items as $i => $item): $src = $img($item, 700, 380); ?>
     <?php if ($i === 6): ?>

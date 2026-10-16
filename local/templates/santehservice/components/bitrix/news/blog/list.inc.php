@@ -7,6 +7,21 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 $sectionCode = $arResult["VARIABLES"]["SECTION_CODE"] ?? "";
 $folder = $arResult["FOLDER"];
 
+// Поиск по статьям: ?q=слово. Каждое слово ищется в названии, анонсе и тексте (с простым отсечением окончаний), слова связаны через «И»
+$q = trim(preg_replace('~\s+~u', " ", strip_tags((string)($_GET["q"] ?? ""))));
+$q = mb_substr($q, 0, 100);
+$blogFilter = [];
+if ($q !== "") {
+    $blogFilter = ["LOGIC" => "AND"];
+    foreach (array_slice(array_filter(explode(" ", $q), function ($w) { return mb_strlen($w) >= 2; }), 0, 6) as $w) {
+        $l = mb_strlen($w); $w = $l >= 7 ? mb_substr($w, 0, -2) : ($l >= 5 ? mb_substr($w, 0, -1) : $w);
+        $blogFilter[] = ["LOGIC" => "OR", "%NAME" => $w, "%PREVIEW_TEXT" => $w, "%DETAIL_TEXT" => $w];
+    }
+    if (count($blogFilter) === 1) $blogFilter = ["ID" => 0]; // запрос из одних коротких слов — ничего не показываем
+}
+$GLOBALS["blogFilter"] = $blogFilter;
+$formAction = $folder . ($sectionCode ? $sectionCode . "/" : "");
+
 // Рубрики (разделы инфоблока) со счётчиками
 $chips = [];
 $total = 0;
@@ -29,8 +44,8 @@ while ($s = $rs->Fetch()) {
             <span class="bl-tag">БЛОГ СантехСервис</span>
             <h1><?= $sectionCode ? $APPLICATION->GetTitle() : "Полезные статьи о сантехнике" ?></h1>
             <p>Советы мастеров, инструкции и обзоры: как устранить неисправность самому и когда лучше вызвать специалиста.</p>
-            <form class="bl-sf" action="<?= SITE_DIR ?>search/" method="get">
-                <input type="text" name="q" placeholder="Поиск по статьям" autocomplete="off">
+            <form class="bl-sf" action="<?= $formAction ?>" method="get" role="search">
+                <input type="text" name="q" value="<?= htmlspecialcharsbx($q) ?>" placeholder="Поиск по статьям" autocomplete="off" aria-label="Поиск по статьям">
                 <button type="submit">Найти</button>
             </form>
         </div>
@@ -53,6 +68,7 @@ while ($s = $rs->Fetch()) {
         [
             "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
             "IBLOCK_ID" => $arParams["IBLOCK_ID"],
+            "FILTER_NAME" => "blogFilter",
             "NEWS_COUNT" => $arParams["NEWS_COUNT"],
             "SORT_BY1" => $arParams["SORT_BY1"],
             "SORT_ORDER1" => $arParams["SORT_ORDER1"],
