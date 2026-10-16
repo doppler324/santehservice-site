@@ -61,7 +61,7 @@ $featured = ($page === 1 && empty($arParams["PARENT_SECTION_CODE"])) ? array_shi
 <div class="bl-grid">
 <?php foreach ($items as $i => $item): $src = $img($item, 700, 380); ?>
     <?php if ($i === 6): ?>
-    <div class="bl-cta"><div><b>Нужна помощь сантехника?</b><span>Мастер приедет за 30 минут, назовёт цену до начала работ и даст гарантию до 3 лет.</span></div><a class="bl-btn" href="/#order">Вызвать мастера</a></div>
+    <div class="bl-cta"><div><b>Нужна помощь сантехника?</b><span>Мастер приедет за 30 минут, назовёт цену до начала работ и даст гарантию до 3 лет.</span></div><a class="bl-btn" href="#contacts">Вызвать мастера</a></div>
     <?php endif ?>
     <a class="bl-card" id="<?= $edit($item) ?>" href="<?= $item["DETAIL_PAGE_URL"] ?>">
         <div class="bl-im" style="<?= $src ? "background-image:url('" . $src . "')" : "" ?>">

@@ -32,7 +32,7 @@
             <?// 2. Навигация ?>
             <div class="flex flex-col gap-3.5 text-[15px] font-medium">
                 <a href="/#services" class="hover:text-white/70 transition-colors">Услуги</a>
-                <a href="/#prices" class="hover:text-white/70 transition-colors">Цены</a>
+                <a href="/ceny/" class="hover:text-white/70 transition-colors">Цены</a>
                 <a href="/#reviews" class="hover:text-white/70 transition-colors">Отзывы</a>
                 <a href="#contacts" class="hover:text-white/70 transition-colors">Контакты</a>
             </div>
