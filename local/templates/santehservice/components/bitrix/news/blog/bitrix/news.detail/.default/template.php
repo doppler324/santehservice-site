@@ -4,13 +4,16 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 $this->setFrameMode(true);
 $rt = $arResult["DISPLAY_PROPERTIES"]["READ_TIME"]["VALUE"] ?? "";
 $pic = $arResult["DETAIL_PICTURE"]["SRC"] ?? "/local/templates/.default/images/blog-hero.jpg";
-// кнопки «Вызвать мастера» внутри текста статьи (блок .cta) с пустой ссылкой ведут к форме в футере (#contacts)
-$text = preg_replace_callback('~<a\b[^>]*>~u', function ($m) {
-    $tag = $m[0];
-    if (!preg_match('~\bclass="[^"]*\bbtn\b~u', $tag)) return $tag;
-    if (!preg_match('~\bhref="([^"]*)"~u', $tag, $h)) return $tag;
-    if (!in_array(trim($h[1]), array("", "#", "#order", "/#order", "/#contacts", "/kontakty/"), true)) return $tag;
-    return preg_replace('~\bhref="[^"]*"~u', 'href="#contacts"', $tag, 1);
+// кнопки-заглушки внутри текста статьи (блок .cta): «Заказать звонок» открывает всплывающую форму, остальные («Вызвать мастера») ведут к форме в футере
+$text = preg_replace_callback('~(<a\b[^>]*>)(.*?)</a>~usi', function ($m) {
+    $tag = $m[1];
+    if (!preg_match('~\bclass="[^"]*\bbtn\b~u', $tag)) return $m[0];
+    if (!preg_match('~\bhref="([^"]*)"~u', $tag, $h)) return $m[0];
+    if (!in_array(trim($h[1]), array("", "#", "#order", "/#order", "/#contacts", "#contacts", "/kontakty/"), true)) return $m[0];
+    $call = mb_stripos(strip_tags($m[2]), "звонок") !== false || mb_stripos(strip_tags($m[2]), "перезвон") !== false;
+    $tag = preg_replace('~\bhref="[^"]*"~u', 'href="' . ($call ? "#callback" : "#contacts") . '"', $tag, 1);
+    if ($call && strpos($tag, "data-callback") === false) $tag = preg_replace('~^<a\b~u', '<a data-callback', $tag, 1);
+    return $tag . $m[2] . "</a>";
 }, (string)$arResult["DETAIL_TEXT"]);
 ?>
 <div class="bd-wrap">
