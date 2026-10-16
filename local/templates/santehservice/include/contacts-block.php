@@ -18,7 +18,7 @@
   </div>
   <div class="cb fm2">
    <h3>Написать нам</h3>
-   <?php global $APPLICATION; $APPLICATION->IncludeComponent("bitrix:form.result.new", "home_form", array(
+   <?php require_once($_SERVER["DOCUMENT_ROOT"]."/local/php_interface/home_webform_events.php"); ?> <?php global $APPLICATION; $APPLICATION->IncludeComponent("bitrix:form.result.new", "home_form", array(
        "WEB_FORM_ID"         => homeWebFormId(),
        "SEF_MODE"            => "N",
        "SUCCESS_URL"         => "",

@@ -4,8 +4,7 @@
    index.php                         -> /index.php
    local/templates/santehservice/*   -> то же место (header.php, footer.php, css/, js/, images/home/, include/, components/)
    local/php_interface/home_webform_events.php -> /local/php_interface/
-   В /local/php_interface/init.php добавьте строку:
-   require_once($_SERVER["DOCUMENT_ROOT"]."/local/php_interface/home_webform_events.php");
+   Файл подключается из index.php и contacts-block.php автоматически, init.php править не нужно.
 
 2. СОЗДАНИЕ ВЕБ-ФОРМЫ (Сервисы -> Веб-формы -> Настройки форм -> Добавить)
    Название: Заявка с сайта (SID формы Битрикс назначает сам, например SIMPLE_FORM_1 — он прописан в home_webform_events.php)

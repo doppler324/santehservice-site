@@ -30,7 +30,7 @@ $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/home.js");
    <div><span class="cir"><svg class="i"><use href="#hm-doc"/></svg></span>Работаем<br>по договору</div>
   </div>
  </div>
- <?php $APPLICATION->IncludeComponent("bitrix:form.result.new", "home_form", array(
+ <?php require_once($_SERVER["DOCUMENT_ROOT"]."/local/php_interface/home_webform_events.php"); ?> <?php $APPLICATION->IncludeComponent("bitrix:form.result.new", "home_form", array(
     "WEB_FORM_ID"         => homeWebFormId(),
     "SEF_MODE"            => "N",
     "SUCCESS_URL"         => "",
