@@ -1,9 +1,9 @@
 <?php
 /**
  * Веб-форма «Заявки с сайта» (модуль «Веб-формы»): вспомогательные функции и защита от спама.
- * Подключить ОДИН раз в /local/php_interface/init.php:
- *     require_once($_SERVER["DOCUMENT_ROOT"]."/local/php_interface/home_webform_events.php");
+ * Подключается из index.php и contacts-block.php; повторное подключение (в том числе из другого пути) безопасно.
  */
+if (!function_exists("homeWebFormId")) {
 
 /** ID веб-формы по её символьному идентификатору (по умолчанию SIMPLE_FORM_1) */
 function homeWebFormId($sid = "SIMPLE_FORM_1")
@@ -32,4 +32,5 @@ function homeWebFormBeforeResultAdd($WEB_FORM_ID, &$arFields, &$arrVALUES)
     if (!empty($_POST["website"])) {
         $strError .= "Заявка отклонена." . "<br>";
     }
+}
 }
