@@ -1,0 +1,7 @@
+<?php
+if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+/** @var array $arParams */
+/** @var array $arResult */
+/** @var CBitrixComponent $component */
+$this->setFrameMode(true);
+include __DIR__ . "/list.inc.php";

@@ -1,0 +1,66 @@
+User-agent: *
+
+Disallow: */index.php
+Disallow: /bitrix/
+Allow: /bitrix/components/
+Allow: /bitrix/js/
+Allow: /bitrix/templates/
+Allow: /bitrix/cache/css/
+Allow: /bitrix/cache/js/
+Allow: /bitrix/images/
+
+Allow: /local/templates/
+Allow: /local/components/
+Allow: /*.css
+Allow: /*.js
+
+Disallow: /*show_include_exec_time=
+Disallow: /*show_page_exec_time=
+Disallow: /*show_sql_stat=
+Disallow: /*bitrix_include_areas=
+Disallow: /*clear_cache=
+Disallow: /*clear_cache_session=
+Disallow: /*ADD_TO_COMPARE_LIST
+Disallow: /*ORDER_BY
+Disallow: /*PAGEN
+Disallow: /*?print=
+Disallow: /*&print=
+Disallow: /*print_course=
+Disallow: /*?action=
+Disallow: /*&action=
+Disallow: /*register=
+Disallow: /*forgot_password=
+Disallow: /*change_password=
+Disallow: /*login=
+Disallow: /*logout=
+Disallow: /*auth=
+Disallow: /*backurl=
+Disallow: /*back_url=
+Disallow: /*BACKURL=
+Disallow: /*BACK_URL=
+Disallow: /*back_url_admin=
+Disallow: /*?utm_source=
+Disallow: /*?bxajaxid=
+Disallow: /*&bxajaxid=
+Disallow: /*?view_result=
+Disallow: /*&view_result=
+Disallow: */filter/*
+Disallow: /*?*
+
+Disallow: /red.php
+Disallow: /search/
+Disallow: /auth/
+Disallow: /personal/
+
+Disallow: /company/
+Disallow: /sales/
+Disallow: /gallery/
+Disallow: /info/
+Disallow: /tariffs/
+Disallow: /news/
+Disallow: /projects/
+Disallow: /landings/
+
+Clean-param: yclid&utm_source&utm_medium&utm_campaign&utm_term&utm_content
+
+Sitemap: https://uslugi-santechnika.ru/sitemap.xml

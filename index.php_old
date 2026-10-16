@@ -1,0 +1,529 @@
+<?php
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetTitle("Вызов сантехника за 30 минут");   // это H1 страницы
+$APPLICATION->SetPageProperty("title", "Вызов сантехника за 30 минут — СантехСервис");
+$APPLICATION->SetPageProperty("description", "Срочный вызов сантехника в Москве круглосуточно: мастер приедет за 30 минут. Выезд бесплатно, фиксированная цена до начала работ, гарантия до 3 лет.");
+$APPLICATION->SetPageProperty("og_title", "Вызов сантехника за 30 минут");
+$APPLICATION->SetPageProperty("og_description", "Мастер приедет за 30 минут. Выезд и диагностика бесплатно, цена фиксируется до начала работ, гарантия до 3 лет.");
+?>
+
+<!-- Главный баннер -->
+<section class="relative bg-[#dce9f9] overflow-hidden">
+    
+    <!-- Фоновое изображение с градиентным растворением (маской) -->
+    <!-- На мобильных скрываем, оставляем только на планшетах и ПК -->
+    <div class="absolute inset-y-0 right-0 w-[60%] z-0 hidden lg:block">
+        <img 
+            src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=1200&auto=format&fit=crop" 
+            alt="Мастер сантехник" 
+            class="w-full h-full object-cover object-[center_top]"
+            style="mask-image: linear-gradient(to right, transparent 0%, black 25%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%);"
+        />
+        <!-- Примечание: замените ссылку в src на путь к вашей картинке, например: <?=SITE_TEMPLATE_PATH?>/img/plumber-banner.png -->
+    </div>
+
+    <!-- Основной контейнер -->
+    <div class="max-w-[1536px] mx-auto px-4 xl:px-8 py-10 lg:py-16 xl:py-20 relative z-10 flex flex-col lg:flex-row justify-between items-center gap-12 lg:gap-8">
+        
+        <!-- Левая часть: Контент -->
+        <div class="w-full lg:w-7/12 xl:w-1/2 flex flex-col items-start">
+            
+            <!-- Бейдж -->
+            <div class="bg-white text-brand-blue text-[10px] sm:text-[11px] font-bold uppercase tracking-wider py-2 px-4 rounded-md mb-6 shadow-sm">
+                Сантехнические услуги в Москве
+            </div>
+
+            <!-- Заголовок -->
+            <h1 class="text-[38px] sm:text-[44px] xl:text-[54px] font-extrabold text-brand-dark leading-[1.15] mb-5 tracking-tight">
+                Вызов сантехника<br>
+                в Москве за <span class="text-brand-blue">30 минут</span>
+            </h1>
+
+            <!-- Подзаголовок -->
+            <p class="text-[17px] sm:text-[19px] text-brand-dark/80 leading-relaxed mb-10 max-w-[500px]">
+                Фиксированная цена до начала работ.<br>
+                Выезд бесплатно. Работаем круглосуточно.
+            </p>
+
+            <!-- Иконки преимуществ -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 w-full max-w-[600px]">
+                
+                <!-- Преимущество 1 -->
+                <div class="flex flex-col items-center sm:items-start text-center sm:text-left gap-3">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-brand-blue shadow-sm">
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                        </svg>
+                    </div>
+                    <div class="text-[13px] font-bold text-brand-dark leading-tight">
+                        Выезд<br>за 30 минут
+                    </div>
+                </div>
+
+                <!-- Преимущество 2 -->
+                <div class="flex flex-col items-center sm:items-start text-center sm:text-left gap-3">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-brand-blue shadow-sm">
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                        </svg>
+                    </div>
+                    <div class="text-[13px] font-bold text-brand-dark leading-tight">
+                        Гарантия<br>до 3 лет
+                    </div>
+                </div>
+
+                <!-- Преимущество 3 -->
+                <div class="flex flex-col items-center sm:items-start text-center sm:text-left gap-3">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-brand-blue shadow-sm">
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
+                        </svg>
+                    </div>
+                    <div class="text-[13px] font-bold text-brand-dark leading-tight">
+                        Фиксированная<br>цена
+                    </div>
+                </div>
+
+                <!-- Преимущество 4 -->
+                <div class="flex flex-col items-center sm:items-start text-center sm:text-left gap-3">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-brand-blue shadow-sm">
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                        </svg>
+                    </div>
+                    <div class="text-[13px] font-bold text-brand-dark leading-tight">
+                        Работаем<br>по договору
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Правая часть: Форма -->
+        <div class="w-full max-w-[420px] flex-shrink-0">
+            <div class="bg-white rounded-[24px] p-7 sm:p-9 shadow-xl shadow-brand-dark/5 border border-gray-100">
+                
+                <h3 class="text-[22px] font-extrabold text-brand-dark leading-tight mb-1">
+                    Оставьте заявку
+                </h3>
+                <p class="text-[14px] text-gray-500 mb-6">
+                    и мастер приедет уже через 30 минут
+                </p>
+
+                <form action="#" method="POST" class="flex flex-col gap-4">
+                    
+                    <!-- Поле Имя -->
+                    <div>
+                        <input type="text" name="name" required placeholder="Ваше имя *" class="w-full px-5 py-3.5 bg-white border border-gray-200 rounded-xl text-[15px] text-gray-800 placeholder-gray-400 outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all">
+                    </div>
+
+                    <!-- Поле Телефон -->
+                    <div>
+                        <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__ *" class="w-full px-5 py-3.5 bg-white border border-gray-200 rounded-xl text-[15px] text-gray-800 placeholder-gray-400 outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all">
+                    </div>
+
+                    <!-- Поле Описание -->
+                    <div>
+                        <input type="text" name="comment" placeholder="Что нужно сделать? (необязательно)" class="w-full px-5 py-3.5 bg-white border border-gray-200 rounded-xl text-[15px] text-gray-800 placeholder-gray-400 outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all">
+                    </div>
+
+                    <!-- Кнопка -->
+                    <button type="submit" class="w-full bg-brand-yellow hover:bg-yellow-400 text-white font-bold text-[16px] py-4 rounded-full transition-all duration-300 mt-2 shadow-lg shadow-brand-yellow/30">
+                        Вызвать мастера
+                    </button>
+
+                    <!-- Согласие -->
+                    <div class="text-center text-[11px] text-gray-400 mt-3 leading-snug">
+                        Нажимая кнопку, вы соглашаетесь<br>
+                        с <a href="/privacy/" class="underline hover:text-gray-600 transition-colors">политикой конфиденциальности</a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<!-- Секция: Почему нам доверяют -->
+<section class="py-16 md:py-20 lg:py-24 bg-white relative z-20">
+    <div class="max-w-[1536px] mx-auto px-4 xl:px-8">
+        
+        <!-- Заголовок секции -->
+        <h2 class="text-[32px] sm:text-[36px] lg:text-[40px] font-extrabold text-brand-dark text-center mb-12 sm:mb-16 tracking-tight">
+            Почему нам доверяют
+        </h2>
+
+        <!-- Сетка преимуществ -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 xl:gap-x-12 gap-y-10 xl:gap-y-14">
+            
+            <!-- Преимущество 1 -->
+            <div class="flex items-center gap-5 sm:gap-6">
+                <!-- Иконка -->
+                <div class="w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] rounded-full bg-brand-blue/10 flex items-center justify-center flex-shrink-0 text-brand-blue">
+                    <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8 sm:w-9 sm:h-9">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                    </svg>
+                </div>
+                <!-- Текст -->
+                <div>
+                    <h4 class="text-[17px] sm:text-[19px] font-bold text-brand-dark leading-tight mb-1.5">
+                        Опыт более 10 лет
+                    </h4>
+                    <p class="text-[14px] sm:text-[15px] text-brand-gray leading-snug">
+                        Мастера с профильным<br class="hidden xl:block"> образованием.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Преимущество 2 -->
+            <div class="flex items-center gap-5 sm:gap-6">
+                <div class="w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] rounded-full bg-brand-blue/10 flex items-center justify-center flex-shrink-0 text-brand-blue">
+                    <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8 sm:w-9 sm:h-9">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.25v5.25c0 .414.336.75.75.75h5.25c.621 0 1.125.504 1.125 1.125v4.229c0 .598-.236 1.17-.659 1.591l-2.06 2.06c-.42.42-.992.657-1.59.657H18m-4.5 0h-1.5" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="text-[17px] sm:text-[19px] font-bold text-brand-dark leading-tight mb-1.5">
+                        Бесплатный выезд<br>и диагностика
+                    </h4>
+                    <p class="text-[14px] sm:text-[15px] text-brand-gray leading-snug">
+                        Оценка работ на месте.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Преимущество 3 -->
+            <div class="flex items-center gap-5 sm:gap-6">
+                <div class="w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] rounded-full bg-brand-blue/10 flex items-center justify-center flex-shrink-0 text-brand-blue">
+                    <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8 sm:w-9 sm:h-9">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="text-[17px] sm:text-[19px] font-bold text-brand-dark leading-tight mb-1.5">
+                        Гарантия на все работы
+                    </h4>
+                    <p class="text-[14px] sm:text-[15px] text-brand-gray leading-snug">
+                        До 3 лет по договору.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Преимущество 4 -->
+            <div class="flex items-center gap-5 sm:gap-6">
+                <div class="w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] rounded-full bg-brand-blue/10 flex items-center justify-center flex-shrink-0 text-brand-blue">
+                    <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8 sm:w-9 sm:h-9">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="text-[17px] sm:text-[19px] font-bold text-brand-dark leading-tight mb-1.5">
+                        Честные цены
+                    </h4>
+                    <p class="text-[14px] sm:text-[15px] text-brand-gray leading-snug">
+                        Без скрытых платежей,<br class="hidden xl:block"> смета до начала работ.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Преимущество 5 -->
+            <div class="flex items-center gap-5 sm:gap-6">
+                <div class="w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] rounded-full bg-brand-blue/10 flex items-center justify-center flex-shrink-0 text-brand-blue">
+                    <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8 sm:w-9 sm:h-9">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="text-[17px] sm:text-[19px] font-bold text-brand-dark leading-tight mb-1.5">
+                        Срочный вызов 24/7
+                    </h4>
+                    <p class="text-[14px] sm:text-[15px] text-brand-gray leading-snug">
+                        Работаем без выходных.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Преимущество 6 -->
+            <div class="flex items-center gap-5 sm:gap-6">
+                <div class="w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] rounded-full bg-brand-blue/10 flex items-center justify-center flex-shrink-0 text-brand-blue">
+                    <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8 sm:w-9 sm:h-9 transform -rotate-45">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.271-2.264.15-2.73 1.22l-3.293 7.684a2.25 2.25 0 01-2.203 1.57h-1.428a2.25 2.25 0 01-1.597-.659l-2.14-2.14a2.25 2.25 0 01-.659-1.597v-1.428a2.25 2.25 0 011.57-2.203l7.684-3.293c1.07-.466 1.49-1.654 1.22-2.73a4.5 4.5 0 014.484-4.884z" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="text-[17px] sm:text-[19px] font-bold text-brand-dark leading-tight mb-1.5">
+                        Собственный инструмент
+                    </h4>
+                    <p class="text-[14px] sm:text-[15px] text-brand-gray leading-snug">
+                        Профессиональное<br class="hidden xl:block"> оборудование.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Услуги сантехника -->
+<section class="py-16 bg-brand-light">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-brand-dark mb-8">Услуги сантехника</h2>
+        
+        <!-- Табы -->
+        <div class="flex flex-wrap justify-center gap-2 mb-10">
+            <button class="bg-brand-blue text-white px-6 py-2 rounded-full text-sm font-medium">Аварийные работы</button>
+            <button class="bg-white text-gray-600 px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-50">Установка</button>
+            <button class="bg-white text-gray-600 px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-50">Ремонт</button>
+            <button class="bg-white text-gray-600 px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-50">Прочистка</button>
+        </div>
+
+        <!-- Сетка услуг (вывод через news.list) -->
+        <?$APPLICATION->IncludeComponent(
+            "bitrix:news.list",
+            "services",
+            Array(
+                "IBLOCK_TYPE" => "content",
+                "IBLOCK_ID" => "1", // ID инфоблока Услуги
+                "NEWS_COUNT" => "4",
+                "SORT_BY1" => "SORT",
+                "SORT_ORDER1" => "ASC",
+                "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PREVIEW_TEXT"),
+                "PROPERTY_CODE" => array("PRICE"),
+                "CACHE_TYPE" => "A",
+                "CACHE_TIME" => "3600"
+            )
+        );?>
+        
+        <div class="text-center mt-10">
+            <button class="border border-brand-blue text-brand-blue px-8 py-3 rounded-full font-medium hover:bg-brand-blue hover:text-white transition">Полный прайс-лист</button>
+        </div>
+    </div>
+</section>
+
+<!-- Секция: Как мы работаем -->
+<section class="py-16 md:py-20 lg:py-24 bg-[#edf4fb] relative z-20">
+    <div class="max-w-[1536px] mx-auto px-4 xl:px-8">
+        
+        <!-- Заголовок секции -->
+        <h2 class="text-[32px] sm:text-[36px] lg:text-[40px] font-extrabold text-brand-dark text-center mb-16 tracking-tight">
+            Как мы работаем
+        </h2>
+
+        <!-- Сетка шагов -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-12 gap-x-6 xl:gap-x-8">
+            
+            <!-- Шаг 1 -->
+            <div class="flex flex-col items-center text-center">
+                <!-- Контейнер с иконкой и цифрой -->
+                <div class="relative mb-6">
+                    <!-- Большой синий круг -->
+                    <div class="w-[88px] h-[88px] xl:w-[96px] xl:h-[96px] bg-brand-blue rounded-full flex items-center justify-center text-white shadow-lg shadow-brand-blue/20">
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-9 h-9 xl:w-10 xl:h-10">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <!-- Цифра (выступает за края круга, с обводкой в цвет фона) -->
+                    <div class="absolute -bottom-3.5 left-1/2 -translate-x-1/2 w-8 h-8 bg-brand-dark rounded-full border-[4px] border-[#edf4fb] flex items-center justify-center text-white text-[13px] font-bold">
+                        1
+                    </div>
+                </div>
+                <!-- Текстовая часть -->
+                <h4 class="text-[17px] sm:text-[19px] font-bold text-brand-dark leading-tight mb-2.5">
+                    Заявка
+                </h4>
+                <p class="text-[14px] sm:text-[15px] text-brand-gray leading-snug">
+                    Оставляйте заявку<br>или звоните.
+                </p>
+            </div>
+
+            <!-- Шаг 2 -->
+            <div class="flex flex-col items-center text-center">
+                <div class="relative mb-6">
+                    <div class="w-[88px] h-[88px] xl:w-[96px] xl:h-[96px] bg-brand-blue rounded-full flex items-center justify-center text-white shadow-lg shadow-brand-blue/20">
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-9 h-9 xl:w-10 xl:h-10">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+                        </svg>
+                    </div>
+                    <div class="absolute -bottom-3.5 left-1/2 -translate-x-1/2 w-8 h-8 bg-brand-dark rounded-full border-[4px] border-[#edf4fb] flex items-center justify-center text-white text-[13px] font-bold">
+                        2
+                    </div>
+                </div>
+                <h4 class="text-[17px] sm:text-[19px] font-bold text-brand-dark leading-tight mb-2.5">
+                    Консультация
+                </h4>
+                <p class="text-[14px] sm:text-[15px] text-brand-gray leading-snug">
+                    Уточняем детали,<br>называем цену.
+                </p>
+            </div>
+
+            <!-- Шаг 3 -->
+            <div class="flex flex-col items-center text-center">
+                <div class="relative mb-6">
+                    <div class="w-[88px] h-[88px] xl:w-[96px] xl:h-[96px] bg-brand-blue rounded-full flex items-center justify-center text-white shadow-lg shadow-brand-blue/20">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-9 h-9 xl:w-10 xl:h-10">
+                            <path d="M5 11l1.5 -4.5a2 2 0 0 1 1.9 -1.5h7.2a2 2 0 0 1 1.9 1.5l1.5 4.5" />
+                            <path d="M4 11h16v4a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-4z" />
+                            <path d="M7 14h.01" />
+                            <path d="M17 14h.01" />
+                            <path d="M8 17v2" />
+                            <path d="M16 17v2" />
+                        </svg>
+                    </div>
+                    <div class="absolute -bottom-3.5 left-1/2 -translate-x-1/2 w-8 h-8 bg-brand-dark rounded-full border-[4px] border-[#edf4fb] flex items-center justify-center text-white text-[13px] font-bold">
+                        3
+                    </div>
+                </div>
+                <h4 class="text-[17px] sm:text-[19px] font-bold text-brand-dark leading-tight mb-2.5">
+                    Выезд мастера
+                </h4>
+                <p class="text-[14px] sm:text-[15px] text-brand-gray leading-snug">
+                    Приезжаем в удобное<br>время с инструментом.
+                </p>
+            </div>
+
+            <!-- Шаг 4 -->
+            <div class="flex flex-col items-center text-center">
+                <div class="relative mb-6">
+                    <div class="w-[88px] h-[88px] xl:w-[96px] xl:h-[96px] bg-brand-blue rounded-full flex items-center justify-center text-white shadow-lg shadow-brand-blue/20">
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-9 h-9 xl:w-10 xl:h-10 transform -rotate-45">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.271-2.264.15-2.73 1.22l-3.293 7.684a2.25 2.25 0 01-2.203 1.57h-1.428a2.25 2.25 0 01-1.597-.659l-2.14-2.14a2.25 2.25 0 01-.659-1.597v-1.428a2.25 2.25 0 011.57-2.203l7.684-3.293c1.07-.466 1.49-1.654 1.22-2.73a4.5 4.5 0 014.484-4.884z" />
+                        </svg>
+                    </div>
+                    <div class="absolute -bottom-3.5 left-1/2 -translate-x-1/2 w-8 h-8 bg-brand-dark rounded-full border-[4px] border-[#edf4fb] flex items-center justify-center text-white text-[13px] font-bold">
+                        4
+                    </div>
+                </div>
+                <h4 class="text-[17px] sm:text-[19px] font-bold text-brand-dark leading-tight mb-2.5">
+                    Выполнение работ
+                </h4>
+                <p class="text-[14px] sm:text-[15px] text-brand-gray leading-snug">
+                    Фиксированная цена,<br>качественный ремонт.
+                </p>
+            </div>
+
+            <!-- Шаг 5 -->
+            <div class="flex flex-col items-center text-center">
+                <div class="relative mb-6">
+                    <div class="w-[88px] h-[88px] xl:w-[96px] xl:h-[96px] bg-brand-blue rounded-full flex items-center justify-center text-white shadow-lg shadow-brand-blue/20">
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-9 h-9 xl:w-10 xl:h-10">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                        </svg>
+                    </div>
+                    <div class="absolute -bottom-3.5 left-1/2 -translate-x-1/2 w-8 h-8 bg-brand-dark rounded-full border-[4px] border-[#edf4fb] flex items-center justify-center text-white text-[13px] font-bold">
+                        5
+                    </div>
+                </div>
+                <h4 class="text-[17px] sm:text-[19px] font-bold text-brand-dark leading-tight mb-2.5">
+                    Оплата и гарантия
+                </h4>
+                <p class="text-[14px] sm:text-[15px] text-brand-gray leading-snug">
+                    Оплата после приемки<br>работ, гарантийный талон.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Наши специалисты -->
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-brand-dark mb-12">Наши специалисты</h2>
+        <?$APPLICATION->IncludeComponent(
+            "bitrix:news.list",
+            "specialists",
+            Array(
+                "IBLOCK_TYPE" => "content",
+                "IBLOCK_ID" => "2", // ID инфоблока Специалисты
+                "NEWS_COUNT" => "4",
+                "FIELD_CODE" => array("NAME", "PREVIEW_PICTURE", "PREVIEW_TEXT"),
+                "PROPERTY_CODE" => array("EXPERIENCE", "SPECIALIZATION"),
+                "CACHE_TYPE" => "A",
+            )
+        );?>
+    </div>
+</section>
+
+<!-- Отзывы (упрощенно) -->
+<section class="py-16 bg-brand-light">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-brand-dark mb-12">Отзывы наших клиентов</h2>
+        <div class="bg-white p-8 rounded-2xl shadow-sm max-w-3xl mx-auto relative">
+            <div class="flex items-center gap-4 mb-4">
+                <img src="<?=SITE_TEMPLATE_PATH?>/images/avatar.jpg" alt="Клиент" class="w-12 h-12 rounded-full object-cover">
+                <div>
+                    <div class="font-bold">Анна, м. Таганская</div>
+                    <div class="text-brand-yellow text-sm">★★★★★</div>
+                </div>
+            </div>
+            <p class="text-gray-600 italic">"Огромное спасибо! Мастер приехал через 40 минут, быстро устранил засор. Вежливый, аккуратный, цена как договаривались. Рекомендую!"</p>
+            <div class="text-xs text-gray-400 mt-4">12.04.2026</div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-brand-dark mb-12">Частые вопросы</h2>
+        <div class="max-w-3xl mx-auto">
+            <?$APPLICATION->IncludeComponent(
+                "bitrix:news.list",
+                "faq",
+                Array(
+                    "IBLOCK_TYPE" => "content",
+                    "IBLOCK_ID" => "3", // ID инфоблока FAQ
+                    "NEWS_COUNT" => "10",
+                    "FIELD_CODE" => array("NAME", "PREVIEW_TEXT"),
+                    "CACHE_TYPE" => "A",
+                )
+            );?>
+        </div>
+    </div>
+</section>
+
+<!-- Контакты -->
+<section class="py-16 bg-brand-light">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-brand-dark mb-12">Контакты</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+                <!-- Контактная информация -->
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-center gap-3">
+                        <span class="text-brand-blue text-xl">📞</span>
+                        <a href="tel:+74951234567" class="font-bold text-lg">+7 (495) 123-45-67</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-brand-blue text-xl">📍</span>
+                        <span>г. Москва, ул. Лесная, д. 7, офис 305</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-brand-blue text-xl">✉️</span>
+                        <a href="mailto:info@santehservice.ru">info@santehservice.ru</a>
+                    </div>
+                </div>
+                <!-- Карта -->
+                <div class="bg-gray-200 h-64 rounded-2xl w-full flex items-center justify-center text-gray-400">
+                    <!-- Здесь будет код карты (Яндекс.Карты) -->
+                    [Карта Яндекс]
+                </div>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-sm">
+                <h3 class="font-bold text-xl mb-6">Написать нам</h3>
+                <?$APPLICATION->IncludeComponent(
+                    "bitrix:main.feedback",
+                    "santeh_form",
+                    Array(
+                        "USE_CAPTCHA" => "N",
+                        "OK_TEXT" => "Спасибо, мы свяжемся с вами в течение 5 минут.",
+                        "EMAIL_TO" => "info@santehservice.ru",
+                        "REQUIRED_FIELDS" => array("NAME", "PHONE"),
+                    )
+                );?>
+            </div>
+        </div>
+    </div>
+</section>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php"); ?>

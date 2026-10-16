@@ -1,0 +1,407 @@
+/* СантехСервис: стили тела статьи (блок <article>)
+   Шрифт Montserrat подключается в <head> страницы:
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet"> */
+
+:root {
+  --b: #1565e8;
+  --d: #0a3a8a;
+  --n: #0a2f6e;
+  --y: #ffb800;
+  --l: #e6f1fd;
+  --g: #5a6f8f;
+  --t: #16407f;
+  --r: #d3deee;
+}
+
+/* Сброс внутри статьи */
+article,
+article * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+article {
+  font-family: Montserrat, 'Segoe UI', Arial, sans-serif;
+}
+article img {
+  max-width: 100%;
+  display: block;
+}
+article a {
+  color: var(--b);
+  text-decoration: none;
+}
+
+/* Кнопка внутри статьи */
+.btn {
+  display:inline-block;
+  background:var(--y);
+  color:#fff;
+  font-weight:700;
+  text-align:center;
+  border-radius:8px;
+  padding:12px 22px;
+  font-size:14px;
+  border:0;
+  cursor:pointer;
+  font-family:inherit;
+}
+
+/* Текст и заголовки */
+article {
+  font-size:17px;
+  line-height:1.78;
+  color:#1d3557;
+}
+article>*+* {
+  margin-top:20px;
+}
+.lead {
+  font-size:20px;
+  line-height:1.65;
+  color:var(--n);
+  font-weight:500;
+  border-left:4px solid var(--y);
+  padding-left:20px;
+}
+article h2 {
+  font-size:28px;
+  line-height:1.25;
+  color:var(--n);
+  margin-top:48px;
+  font-weight:800;
+}
+article h3 {
+  font-size:20px;
+  line-height:1.3;
+  color:var(--d);
+  margin-top:30px;
+  font-weight:700;
+}
+article a {
+  border-bottom:1.5px solid #9dc0f7;
+}
+article a:hover {
+  background:var(--l);
+}
+article mark {
+  background:#fff3cf;
+  padding:0 4px;
+  border-radius:3px;
+}
+
+/* Списки */
+article ul,article ol {
+  padding-left:0;
+  list-style:none;
+}
+article ul li {
+  position:relative;
+  padding-left:30px;
+  margin-top:9px;
+}
+article ul li:before {
+  content:"";
+  position:absolute;
+  left:4px;
+  top:.62em;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:var(--b);
+}
+article ol {
+  counter-reset:c;
+}
+article ol li {
+  counter-increment:c;
+  position:relative;
+  padding-left:46px;
+  margin-top:12px;
+}
+article ol li:before {
+  content:counter(c);
+  position:absolute;
+  left:0;
+  top:0;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:var(--b);
+  color:#fff;
+  font:700 14px/32px Montserrat,sans-serif;
+  text-align:center;
+}
+ul.ck li:before {
+  content:"✓";
+  background:#dcecfc;
+  color:var(--b);
+  width:22px;
+  height:22px;
+  top:.35em;
+  left:0;
+  font:700 13px/22px Montserrat,sans-serif;
+  text-align:center;
+}
+ul.ck li {
+  padding-left:36px;
+}
+
+/* Цитата */
+blockquote {
+  background:var(--l);
+  border-radius:12px;
+  padding:26px 30px 24px 74px;
+  position:relative;
+  font-size:18px;
+  font-style:italic;
+  color:var(--n);
+}
+blockquote:before {
+  content:"“";
+  position:absolute;
+  left:24px;
+  top:6px;
+  font:800 72px/1 Georgia,serif;
+  color:var(--b);
+}
+blockquote cite {
+  display:block;
+  margin-top:12px;
+  font-size:14px;
+  font-style:normal;
+  font-weight:600;
+  color:var(--t);
+}
+
+/* Врезки */
+.note {
+  border-radius:12px;
+  padding:18px 22px 18px 66px;
+  position:relative;
+  font-size:15.5px;
+  line-height:1.65;
+}
+.note b {
+  display:block;
+  font-size:16px;
+  margin-bottom:3px;
+}
+.note:before {
+  position:absolute;
+  left:20px;
+  top:18px;
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  color:#fff;
+  font:800 16px/30px Montserrat,sans-serif;
+  text-align:center;
+}
+.tip {
+  background:#e7f6ec;
+  color:#155c33;
+}
+.tip:before {
+  content:"i";
+  background:#19a352;
+}
+.warn {
+  background:#fff3cf;
+  color:#7a5200;
+}
+.warn:before {
+  content:"!";
+  background:var(--y);
+}
+
+/* Фото и подпись */
+figure img {
+  width:100%;
+  height:340px;
+  object-fit:cover;
+  border-radius:12px;
+}
+figcaption {
+  font-size:13px;
+  color:var(--g);
+  margin-top:8px;
+}
+
+/* Таблица */
+.tb {
+  overflow-x:auto;
+  border-radius:12px;
+  border:1px solid var(--r);
+}
+table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:15px;
+  min-width:520px;
+}
+th {
+  background:var(--b);
+  color:#fff;
+  text-align:left;
+  padding:13px 16px;
+  font-size:13.5px;
+}
+td {
+  padding:13px 16px;
+  border-top:1px solid var(--r);
+}
+tbody tr:nth-child(even) {
+  background:#f4f9ff;
+}
+
+/* Призыв к действию */
+.cta {
+  background:linear-gradient(100deg,#0b3d91,#1565e8);
+  color:#fff;
+  border-radius:14px;
+  padding:30px 34px;
+  display:flex;
+  gap:24px;
+  align-items:center;
+  justify-content:space-between;
+}
+.cta .btn {
+  white-space:nowrap;
+  flex:none;
+}
+.cta b {
+  font-size:22px;
+  line-height:1.3;
+  display:block;
+}
+.cta span {
+  font-size:14.5px;
+  opacity:.92;
+  display:block;
+  margin-top:5px;
+  line-height:1.5;
+}
+
+/* Вопросы и ответы */
+details {
+  border:1px solid var(--r);
+  border-radius:10px;
+  padding:0 20px;
+  margin-top:10px!important;
+}
+summary {
+  cursor:pointer;
+  font-weight:700;
+  font-size:16px;
+  padding:16px 0;
+  list-style:none;
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  color:var(--n);
+}
+summary::-webkit-details-marker {
+  display:none;
+}
+summary:after {
+  content:"+";
+  color:var(--b);
+  font-size:22px;
+  line-height:1;
+}
+details[open] summary:after {
+  content:"−";
+}
+details p {
+  padding:0 0 16px;
+  font-size:15.5px;
+  margin:0;
+}
+details[open] {
+  background:#f7fbff;
+  border-color:#b7d3f7;
+}
+
+/* Теги и «Поделиться» */
+.tags {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.tags a {
+  background:var(--l);
+  border:0!important;
+  border-radius:16px;
+  padding:6px 14px;
+  font-size:13px;
+  font-weight:600;
+}
+.sh {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:14px;
+  font-weight:600;
+}
+.sh i {
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:var(--b);
+  color:#fff;
+  font:700 12px/36px Montserrat;
+  font-style:normal;
+  text-align:center;
+}
+
+/* Блок автора */
+.au {
+  display:flex;
+  gap:20px;
+  background:var(--l);
+  border-radius:14px;
+  padding:24px;
+  align-items:center;
+}
+.au img {
+  width:84px;
+  height:84px;
+  border-radius:50%;
+  flex:none;
+  border:3px solid #fff;
+}
+.au b {
+  font-size:17px;
+  display:block;
+}
+.au small {
+  font-size:13px;
+  color:var(--g);
+  display:block;
+  margin-bottom:6px;
+}
+.au p {
+  font-size:14.5px;
+  line-height:1.6;
+}
+
+/* Адаптив */
+@media (max-width: 640px) {
+  article { font-size: 16px; }
+  article h2 { font-size: 23px; }
+  .cta { flex-direction: column; align-items: flex-start; }
+  .au { flex-direction: column; text-align: center; }
+}
+
+/* Обложка и обвязка детальной страницы */
+.bd-wrap{max-width:860px;margin:0 auto;padding:20px 24px 64px;font-family:Montserrat,'Segoe UI',Arial,sans-serif;color:#0a2f6e}
+.bd-wrap *{box-sizing:border-box}.bd-bc{font-size:13px;color:#5a6f8f}.bd-bc a{color:#5a6f8f;text-decoration:none}.bd-bc b{color:#0a2f6e;font-weight:500}.bd-bc i{margin:0 8px;font-style:normal}
+.bd-cover{margin:18px 0 40px;border-radius:16px;overflow:hidden;position:relative;background:linear-gradient(100deg,#d4e8fb,#a9cdf3);min-height:280px;display:flex}
+.bd-cover__tx{padding:36px 40px;max-width:560px;position:relative;z-index:1}
+.bd-cover>img{position:absolute;right:0;top:0;height:100%;width:auto;max-width:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 22%);mask-image:linear-gradient(90deg,transparent,#000 22%)}
+.bd-tag{display:inline-block;background:#fff;color:#1565e8;font-size:11px;font-weight:700;padding:6px 12px;border-radius:6px}
+.bd-cover h1{font-size:34px;line-height:1.2;color:#0a3a8a;margin:16px 0 18px;font-weight:800}
+.bd-meta{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:13px;color:#16407f}
+.bd-back{display:inline-block;margin-top:36px;font-weight:700;color:#1565e8;text-decoration:none}
+@media(max-width:640px){.bd-cover h1{font-size:25px}.bd-cover__tx{padding:24px}.bd-cover>img{opacity:.3}}

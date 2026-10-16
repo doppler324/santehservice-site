@@ -1,0 +1,50 @@
+Options -Indexes
+ErrorDocument 404 /404.php
+
+<IfModule mod_rewrite.c>
+	Options +FollowSymLinks
+	RewriteEngine On
+
+	# мои правила
+
+	# 1. www -> основной домен, адрес страницы сохраняется
+	RewriteCond %{HTTP_HOST} ^www\.uslugi-santechnika\.ru(?::\d+)?$ [NC]
+	RewriteCond %{REQUEST_URI} !^/\.well-known/
+	RewriteRule ^(.*)$ https://uslugi-santechnika.ru/$1 [R=301,L]
+
+	# 2. Любой поддомен, любая страница -> главная основного сайта
+	RewriteCond %{HTTP_HOST} ^(?:[^.]+\.)+uslugi-santechnika\.ru(?::\d+)?$ [NC]
+	RewriteCond %{HTTP_HOST} !^www\.uslugi-santechnika\.ru(?::\d+)?$ [NC]
+	RewriteCond %{REQUEST_URI} !^/\.well-known/
+	RewriteRule ^ https://uslugi-santechnika.ru/? [R=301,L]
+
+	# 3. Раздел /nashi-uslugi/ -> /uslugi/
+	RewriteRule ^nashi-uslugi(/.*)?$ https://uslugi-santechnika.ru/uslugi/ [R=301,L]
+
+	# мои правила конец
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-l
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !/bitrix/urlrewrite.php$
+	RewriteRule ^(.*)$ /bitrix/urlrewrite.php [L]
+	RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization}]
+
+</IfModule>
+
+<IfModule mod_dir.c>
+	DirectoryIndex index.php index.html
+</IfModule>
+
+<IfModule mod_negotiation.c>
+	Options -MultiViews
+</IfModule>
+
+<IfModule mod_expires.c>
+	ExpiresActive on
+	ExpiresByType image/jpeg "access plus 3 day"
+	ExpiresByType image/gif "access plus 3 day"
+	ExpiresByType image/png "access plus 3 day"
+	ExpiresByType text/css "access plus 3 day"
+	ExpiresByType application/javascript "access plus 3 day"
+</IfModule>
