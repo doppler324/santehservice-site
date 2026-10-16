@@ -7,7 +7,8 @@ if (empty($arResult)) return;
 <nav class="hidden lg:flex items-center gap-6 xl:gap-8">
 <?php foreach ($arResult as $item): ?>
     <?php if ($item["DEPTH_LEVEL"] > 1) continue; ?>
+    <?php $sel = $item["SELECTED"] && strpos($item["LINK"], "#") === false; // якорные пункты не подсвечиваем ?>
     <a href="<?= htmlspecialcharsbx($item["LINK"]) ?>"
-       class="<?= $item["SELECTED"] ? "text-brand-blue" : "text-brand-dark" ?> font-semibold text-[15px] hover:text-brand-blue transition-colors"<?= $item["SELECTED"] ? ' aria-current="page"' : "" ?>><?= htmlspecialcharsbx($item["TEXT"]) ?></a>
+       class="<?= $sel ? "text-brand-blue" : "text-brand-dark" ?> font-semibold text-[15px] hover:text-brand-blue transition-colors"<?= $sel ? ' aria-current="page"' : "" ?>><?= htmlspecialcharsbx($item["TEXT"]) ?></a>
 <?php endforeach ?>
 </nav>

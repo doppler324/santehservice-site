@@ -193,7 +193,7 @@ footer.sf{background:#0a3a8a;color:#fff;padding:34px 0 38px;margin-top:26px}
 }
 
 /* блок «Контакты» */
-#contacts{padding:46px 0 24px;scroll-margin-top:84px}
+#contacts{padding:46px 0 24px}
 #contacts *{box-sizing:border-box}
 #contacts .ct{display:grid;grid-template-columns:300px minmax(0,1fr) 300px;gap:24px;align-items:stretch}
 #contacts .cb{background:#e6f1fd;border-radius:10px;padding:22px 20px;display:flex;flex-direction:column;min-height:300px}

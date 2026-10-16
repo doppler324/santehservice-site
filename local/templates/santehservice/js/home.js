@@ -15,4 +15,10 @@ document.addEventListener("DOMContentLoaded",function(){
  d.forEach(function(x,j){x.onclick=function(){go(j)}});
 })();
 
+ // переход с других страниц по ссылке вида /#services: после загрузки картинок докручиваем до блока (учитывается scroll-padding)
+ window.addEventListener('load',function(){
+  if(!location.hash||location.hash.length<2)return;
+  var el=document.getElementById(decodeURIComponent(location.hash.slice(1)));
+  if(el)setTimeout(function(){el.scrollIntoView()},150);
+ });
 });

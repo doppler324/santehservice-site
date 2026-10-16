@@ -1,6 +1,6 @@
 /* Блок «Контакты» (#contacts) — подключается из header.php на всех страницах */
 /* блок «Контакты» */
-#contacts{padding:46px 0 24px;scroll-margin-top:84px}
+#contacts{padding:46px 0 24px}
 #contacts *{box-sizing:border-box}
 #contacts .ct{display:grid;grid-template-columns:300px minmax(0,1fr) 300px;gap:24px;align-items:stretch}
 #contacts .cb{background:#e6f1fd;border-radius:10px;padding:22px 20px;display:flex;flex-direction:column;min-height:300px}
@@ -30,7 +30,7 @@
 #contacts .sbt:disabled{opacity:.6;cursor:wait}
 
 /* плавная прокрутка к якорям (#contacts) */
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
 
 /* всплывающая форма «Заказать звонок» (include/callback-modal.php) */
 .cbm{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(10,47,110,.55)}
