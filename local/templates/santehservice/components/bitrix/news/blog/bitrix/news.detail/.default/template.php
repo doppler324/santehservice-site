@@ -4,6 +4,14 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 $this->setFrameMode(true);
 $rt = $arResult["DISPLAY_PROPERTIES"]["READ_TIME"]["VALUE"] ?? "";
 $pic = $arResult["DETAIL_PICTURE"]["SRC"] ?? "/local/templates/.default/images/blog-hero.jpg";
+// кнопки «Вызвать мастера» внутри текста статьи (блок .cta) с пустой ссылкой ведут к форме в футере (#contacts)
+$text = preg_replace_callback('~<a\b[^>]*>~u', function ($m) {
+    $tag = $m[0];
+    if (!preg_match('~\bclass="[^"]*\bbtn\b~u', $tag)) return $tag;
+    if (!preg_match('~\bhref="([^"]*)"~u', $tag, $h)) return $tag;
+    if (!in_array(trim($h[1]), array("", "#", "#order", "/#order", "/#contacts", "/kontakty/"), true)) return $tag;
+    return preg_replace('~\bhref="[^"]*"~u', 'href="#contacts"', $tag, 1);
+}, (string)$arResult["DETAIL_TEXT"]);
 ?>
 <div class="bd-wrap">
     <div class="bd-bc"><a href="/">Главная</a><i>/</i><a href="<?= $arResult["LIST_PAGE_URL"] ?>">Блог</a><i>/</i><b><?= $arResult["NAME"] ?></b></div>
@@ -22,7 +30,7 @@ $pic = $arResult["DETAIL_PICTURE"]["SRC"] ?? "/local/templates/.default/images/b
 
     <article>
         <?php if (!empty($arResult["PREVIEW_TEXT"])): ?><p class="lead"><?= strip_tags($arResult["PREVIEW_TEXT"]) ?></p><?php endif ?>
-        <?= $arResult["DETAIL_TEXT"] ?>
+        <?= $text ?>
     </article>
 
     <a class="bd-back" href="<?= $arResult["LIST_PAGE_URL"] ?>">← Все статьи блога</a>
